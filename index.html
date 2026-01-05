@@ -7,13 +7,20 @@
         <link rel="stylesheet" href="styling.css">
     </head>
     <body>
-        <h1> Hello, my name is Jose Solano! </h1>
-        
+        <h1 class="typing"><span class="typing-text">Hello, my name is Jose Solano!</span></h1>
+
+        <nav class="tabs" aria-label="Main navigation">
+            <a href="#about" class="tab">About Me</a>
+            <a href="#contact" class="tab">Contact</a>
+            <a href="#projects" class="tab">Projects</a>
+            <a href="#skills" class="tab">Skills</a>
+        </nav>
+
         <img src="images/me.jpg" alt="My portrait" width="456" height="608">
 
         <br><br>
 
-                    <p>Contact Information</p>
+                    <p id="contact">Contact Information</p>
                 <ul class="contact-list">
                         <li>Email: jlsolano06@gmail.com</li>
                         <li class="social-row">
@@ -26,7 +33,7 @@
                         </li>
                 </ul>
 
-        <h2> About Me: </h2>
+        <h2 id="about"> About Me: </h2>
         
         <p>I'm Jose Solano, Computer Science graduate from Florida State University. I have a passion for technology and programming, and I enjoy creating innovative solutions to complex problems. 
            I have experience in various programming languages including Python, Java, and C++. My main focus is working with artificial intelligence and machine learning, but I also have experience 
@@ -37,7 +44,7 @@
         
         <br><br>
         
-        <h2>Projects: (click a project name for details)</h2>
+        <h2 id="projects">Projects: (click a project name for details)</h2>
         <ul>
             <li class="project-item">
                 <h3><button class="project-open" data-project="1">Retail Clothing Stock Manager</button></h3>
@@ -116,7 +123,7 @@
             </li>
         </ul>
         
-        <h2> Skills: </h2>
+        <h2 id="skills"> Skills: </h2>
         
     <ul>
     <li>
@@ -160,8 +167,10 @@
             <li>AI sorting and search algorithms</li>
         </ul>
     </li>
-</ul>
-        
+        </ul>
+
+        <button id="back-to-top" aria-label="Back to top">↑</button>
+
     <script>
         (function(){
             function openModal(id) {
@@ -182,6 +191,35 @@
                 });
             });
 
+            // Tabs: set active on click and on scroll
+            const tabs = document.querySelectorAll('.tab');
+            function setActiveTab(id) {
+                tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + id));
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    // allow default anchor scroll, then set active
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                });
+            });
+
+            const sectionIds = ['about','contact','projects','skills'];
+            const sectionElements = sectionIds.map(id => document.getElementById(id));
+            window.addEventListener('scroll', () => {
+                const offset = window.innerHeight * 0.35;
+                for (let i = sectionElements.length - 1; i >= 0; i--) {
+                    const el = sectionElements[i];
+                    if (!el) continue;
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top <= offset) {
+                        setActiveTab(sectionIds[i]);
+                        break;
+                    }
+                }
+            });
+
             document.querySelectorAll('.project-modal').forEach(modal => {
                 // Do not close the modal on overlay mouse movement/clicks to avoid accidental glitches.
                 // Only the close button and Escape key will close the modal.
@@ -198,6 +236,22 @@
                     document.querySelectorAll('.project-modal[aria-hidden="false"]').forEach(m => closeModal(m));
                 }
             });
+
+            // Back-to-top button
+            const backBtn = document.getElementById('back-to-top');
+            if (backBtn) {
+                function checkBackBtn() {
+                    if (window.scrollY > 300) {
+                        backBtn.classList.add('visible');
+                    } else {
+                        backBtn.classList.remove('visible');
+                    }
+                }
+                window.addEventListener('scroll', checkBackBtn, { passive: true });
+                backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+                // initialize state
+                checkBackBtn();
+            }
         })();
     </script>
 
