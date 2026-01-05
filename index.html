@@ -13,11 +13,18 @@
 
         <br><br>
 
-          <p>Contact Information</p>
-        <ul>
-            <li>Email: jlsolano06@gmail.com</li>
-            <li>LinkedIn: <a href="https://linkedin.com/in/josesolanod">Profile Link</a></li>
-            <li>GitHub: <a href="https://github.com/LeonardoHN07">Profile Link</a></li>
+                    <p>Contact Information</p>
+                <ul class="contact-list">
+                        <li>Email: jlsolano06@gmail.com</li>
+                        <li class="social-row">
+                            <a href="https://linkedin.com/in/josesolanod" target="_blank" rel="noopener noreferrer"><img src="images/linkedin.png" alt="LinkedIn logo" class="social-icon linkedin"></a>
+                            <a href="https://github.com/LeonardoHN07" target="_blank" rel="noopener noreferrer"><img src="images/github.png" alt="GitHub logo" class="social-icon github"></a>
+                            <a href="images/Jose Solano Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-link">
+                                <img src="images/resume.png" alt="Resume logo" class="social-icon resume">
+                                <span class="resume-text">Show Resume</span>
+                            </a>
+                        </li>
+                </ul>
 
         <h2> About Me: </h2>
         
@@ -30,41 +37,83 @@
         
         <br><br>
         
-        <h2>Projects: </h2>
+        <h2>Projects: (click a project name for details)</h2>
         <ul>
-            <li>
-                <h3> Retail Clothing Stock Manager  <button onclick="window.location.href='https://docs.google.com/document/d/1w45mpYUdfuQmk8awCmbGKaUBde514Yrkb7nQRLaTYvI/edit?usp=sharing'">Link to documentation</button></h3>
-                <p>Worked on both the backend and frontend for a semester long group project which consisted in creating a stock management
+            <li class="project-item">
+                <h3><button class="project-open" data-project="1">Retail Clothing Stock Manager</button></h3>
+                <div class="project-modal" id="modal-1" aria-hidden="true">
+                    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                        <button class="modal-close" aria-label="Close">×</button>
+                        <h3 id="modal-1-title">Retail Clothing Stock Manager</h3>
+                        <p>Worked on both the backend and frontend for a semester long group project which consisted in creating a stock management
  application that tracks retail items, sends alerts when items are low on stock, updates items, tracks who made changes to the data
- stored, and provides analytics like most items sold, revenue and user interactions.
-                </p>
+ stored, and provides analytics like most items sold, revenue and user interactions.</p>
+                        <div class="modal-actions">
+                            <button onclick="window.location.href='https://docs.google.com/document/d/1w45mpYUdfuQmk8awCmbGKaUBde514Yrkb7nQRLaTYvI/edit?usp=sharing'">Link to documentation</button>
+                        </div>
+                    </div>
+                </div>
             </li>
             
             
-            <li>
-                <h3> Named Entity Recognition Model <button onclick="window.location.href='https://mainpy-mvvpfyrapjn6m8d9ypspim.streamlit.app/'">Link to web version</button> </h3>
-                <p>
-                     Group project consisting on training a named entity recognition model to recognize entities in text such as people, locations, dates,
+            <li class="project-item">
+                <h3><button class="project-open" data-project="2">Named Entity Recognition Model</button></h3>
+                <div class="project-modal" id="modal-2" aria-hidden="true">
+                    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-2-title">
+                        <button class="modal-close" aria-label="Close">×</button>
+                        <h3 id="modal-2-title">Named Entity Recognition Model</h3>
+                        <p>Group project consisting on training a named entity recognition model to recognize entities in text such as people, locations, dates,
  events, geographical locations, products and currencies. Trained a blank spacy model to function specifically with texts related to
  travel and tourism. My contributions were developing and training the initial blank NER model. Read through the Spacy
- documentation to start the development of the project. Also developed a simpler version of the final project as a website. 
-                </p>
-                
-                
+ documentation to start the development of the project. Also developed a simpler version of the final project as a website.</p>
+                        <div class="modal-actions">
+                            <button onclick="window.location.href='https://mainpy-mvvpfyrapjn6m8d9ypspim.streamlit.app/'">Link to web version</button>
+                        </div>
+                    </div>
+                </div>
             </li>
-            
-            <li>
-                <h3> Power Automate Weather Bot Virtual Agent <button onclick="window.location.href='https://drive.google.com/file/d/1GV7PrDdkdkc2aMe47NIrEV9ZLZIOsseK/view'">Link to video demonstration</button> </h3>
-                
-                <p>
-                     Using Microsoft Power Automate tools I created a weather bot with the capabilities of looking up a city and state by providing a zip
+            <li class="project-item">
+                <h3><button class="project-open" data-project="3">Power Automate Weather Bot Virtual Agent</button></h3>
+                <div class="project-modal" id="modal-3" aria-hidden="true">
+                    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-3-title">
+                        <button class="modal-close" aria-label="Close">×</button>
+                        <h3 id="modal-3-title">Power Automate Weather Bot Virtual Agent</h3>
+                        <p>Using Microsoft Power Automate tools I created a weather bot with the capabilities of looking up a city and state by providing a zip
  code. Give you the weather forecast at an specific address and provide random weather facts when asked. The virtual agent was
  trained with prompts to ensure its user friendly and fun for all ages. The virtual agent uses cloud flows to be able to retrieve
- information when prompted. 
-
-                </p>
+ information when prompted.</p>
+                        <div class="modal-actions">
+                            <button onclick="window.location.href='https://drive.google.com/file/d/1GV7PrDdkdkc2aMe47NIrEV9ZLZIOsseK/view'">Link to video demonstration</button>
+                        </div>
+                    </div>
+                </div>
             </li>
-            
+            <li class="project-item">
+                <h3><button class="project-open" data-project="4">Accessibility Finder</button></h3>
+                <div class="project-modal" id="modal-4" aria-hidden="true">
+                    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-4-title">
+                        <button class="modal-close" aria-label="Close">×</button>
+                        <h3 id="modal-4-title">Accessibility Finder</h3>
+                        <p>Developed a web application that helps users identify accessibility features in public spaces. The project involved creating a user-friendly interface for reporting and locating accessibility amenities such as ramps, elevators, and accessible restrooms. Implemented a database to store location data and integrated mapping features to visualize accessibility points.</p>
+                        <div class="modal-actions">
+                            <button onclick="window.location.href='https://accessiblityfinder.xo.je/'">Link to Website</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="project-item">
+                <h3><button class="project-open" data-project="5">Machine Learning Cat vs Dog</button></h3>
+                <div class="project-modal" id="modal-5" aria-hidden="true">
+                    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-5-title">
+                        <button class="modal-close" aria-label="Close">×</button>
+                        <h3 id="modal-5-title">Machine Learning Cat vs Dog</h3>
+                        <p>Created a machine learning model to classify images of cats and dogs using Python and TensorFlow. The project involved training a convolutional neural network (CNN) on a dataset of labeled images, achieving high accuracy in distinguishing between the two classes. Implemented data preprocessing techniques and used transfer learning to improve model performance.</p>
+                        <div class="modal-actions">
+                            <button onclick="window.location.href='https://docs.google.com/document/d/1rpJ2CNv-RErgAUZWLwRNthEvwchCpjvbHlJE_ajZN8s/edit?usp=sharing'">Link to documentation</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
         </ul>
         
         <h2> Skills: </h2>
@@ -113,5 +162,43 @@
     </li>
 </ul>
         
-        
+    <script>
+        (function(){
+            function openModal(id) {
+                const modal = document.getElementById('modal-' + id);
+                if (!modal) return;
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeModal(modal) {
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            document.querySelectorAll('.project-open').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-project');
+                    openModal(id);
+                });
+            });
+
+            document.querySelectorAll('.project-modal').forEach(modal => {
+                // Do not close the modal on overlay mouse movement/clicks to avoid accidental glitches.
+                // Only the close button and Escape key will close the modal.
+                const close = modal.querySelector('.modal-close');
+                if (close) close.addEventListener('click', () => closeModal(modal));
+
+                // Prevent clicks inside the modal content from bubbling up.
+                const content = modal.querySelector('.modal-content');
+                if (content) content.addEventListener('click', (e) => e.stopPropagation());
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.project-modal[aria-hidden="false"]').forEach(m => closeModal(m));
+                }
+            });
+        })();
+    </script>
+
 </html>
