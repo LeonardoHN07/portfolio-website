@@ -267,12 +267,12 @@ button:hover {
 }
 
 @media (max-width: 420px) {
-    .social-icon {
-        width: 72px;
+    h1 {
+        font-size: 1.3rem;
     }
-
-    .social-icon.github {
-        width: 82px;
+    
+    .typing-text {
+        animation: typing 3.5s steps(22, end), blink-cursor 0.75s step-end infinite;
     }
 }
 
