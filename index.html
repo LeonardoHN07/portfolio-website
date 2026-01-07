@@ -20,19 +20,6 @@
 
         <br><br>
 
-                    <p id="contact">Contact Information</p>
-                <ul class="contact-list">
-                        <li>Email: jlsolano06@gmail.com</li>
-                        <li class="social-row">
-                            <a href="https://linkedin.com/in/josesolanod" target="_blank" rel="noopener noreferrer"><img src="images/linkedin.png" alt="LinkedIn logo" class="social-icon linkedin"></a>
-                            <a href="https://github.com/LeonardoHN07" target="_blank" rel="noopener noreferrer"><img src="images/github.png" alt="GitHub logo" class="social-icon github"></a>
-                            <a href="images/Jose Solano Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-link">
-                                <img src="images/resume.png" alt="Resume logo" class="social-icon resume">
-                                <span class="resume-text">Show Resume</span>
-                            </a>
-                        </li>
-                </ul>
-
         <h2 id="about"> About Me: </h2>
         
         <p>I'm Jose Solano, Computer Science graduate from Florida State University. I have a passion for technology and programming, and I enjoy creating innovative solutions to complex problems. 
@@ -42,6 +29,21 @@
            I am excited to continue learning and growing as a professional in this area. Below you can find some of my projects and skills that I have acquired throughout my academic career.
         </p>
         
+        <br><br>
+
+        <p id="contact">Contact Information</p>
+        <ul class="contact-list">
+                <li>Email: jlsolano06@gmail.com</li>
+                <li class="social-row">
+                    <a href="https://linkedin.com/in/josesolanod" target="_blank" rel="noopener noreferrer"><img src="images/linkedin.png" alt="LinkedIn logo" class="social-icon linkedin"></a>
+                    <a href="https://github.com/LeonardoHN07" target="_blank" rel="noopener noreferrer"><img src="images/github.png" alt="GitHub logo" class="social-icon github"></a>
+                    <a href="images/Jose Solano Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-link">
+                        <img src="images/resume.png" alt="Resume logo" class="social-icon resume">
+                        <span class="resume-text">Show Resume</span>
+                    </a>
+                </li>
+        </ul>
+
         <br><br>
         
         <h2 id="projects">Projects: (click a project name for details)</h2>
@@ -193,22 +195,13 @@
 
             // Tabs: set active on click and on scroll
             const tabs = document.querySelectorAll('.tab');
-            function setActiveTab(id) {
-                tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + id));
-            }
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', (e) => {
-                    // allow default anchor scroll, then set active
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                });
-            });
-
+            let clearHighlightTimeout;
+            
             const sectionIds = ['about','contact','projects','skills'];
             const sectionElements = sectionIds.map(id => document.getElementById(id));
-            window.addEventListener('scroll', () => {
-                const offset = window.innerHeight * 0.35;
+            
+            function updateActiveTabFromScroll() {
+                const offset = window.innerHeight * 0.1;
                 for (let i = sectionElements.length - 1; i >= 0; i--) {
                     const el = sectionElements[i];
                     if (!el) continue;
@@ -218,6 +211,23 @@
                         break;
                     }
                 }
+            }
+            
+            window.addEventListener('scroll', () => {
+                clearTimeout(clearHighlightTimeout);
+                updateActiveTabFromScroll();
+            });
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    clearTimeout(clearHighlightTimeout);
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    // After scrolling completes, let the scroll listener take over
+                    clearHighlightTimeout = setTimeout(() => {
+                        updateActiveTabFromScroll();
+                    }, 500);
+                });
             });
 
             document.querySelectorAll('.project-modal').forEach(modal => {
